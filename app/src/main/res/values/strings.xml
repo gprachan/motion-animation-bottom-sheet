@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">BottomSheet Layout Animation</string>
+    <string name="pickup_location">Pickup Location</string>
+    <string name="destination">Destination</string>
+    <string name="long_text">Notice am using INVISIBLE instead of GONE on the topAddressBar? that is because everytime I called GONE the layout would ideally recalculate according to my assumption and the map would flicker, to stop that I had to use invisible as the layout does not shrink instead it still takes up the same space but just not visible.
+
+Also notice I am adding padding cardChooseAddressBottomSheet.getLayoutParams() this is because I need the Sheet not to go too deep underneath the topAddressBar as not to hide my recyclerview content. The current padding makes sure the recyclerview is fully visible and everything else on top of it is underneath the topAddressBar Notice am using INVISIBLE instead of GONE on the topAddressBar? that is because everytime I called GONE the layout would ideally recalculate according to my assumption and the map would flicker, to stop that I had to use invisible as the layout does not shrink instead it still takes up the same space but just not visible.
+
+Also notice I am adding padding cardChooseAddressBottomSheet.getLayoutParams() this is because I need the Sheet not to go too deep underneath the topAddressBar as not to hide my recyclerview content. The current padding makes sure the recyclerview is fully visible and everything else on top of it is underneath the topAddressBar Notice am using INVISIBLE instead of GONE on the topAddressBar? that is because everytime I called GONE the layout would ideally recalculate according to my assumption and the map would flicker, to stop that I had to use invisible as the layout does not shrink instead it still takes up the same space but just not visible.
+
+Also notice I am adding padding cardChooseAddressBottomSheet.getLayoutParams() this is because I need the Sheet not to go too deep underneath the topAddressBar as not to hide my recyclerview content. The current padding makes sure the recyclerview is fully visible and everything else on top of it is underneath the topAddressBar Notice am using INVISIBLE instead of GONE on the topAddressBar? that is because everytime I called GONE the layout would ideally recalculate according to my assumption and the map would flicker, to stop that I had to use invisible as the layout does not shrink instead it still takes up the same space but just not visible.
+
+Also notice I am adding padding cardChooseAddressBottomSheet.getLayoutParams() this is because I need the Sheet not to go too deep underneath the topAddressBar as not to hide my recyclerview content. The current padding makes sure the recyclerview is fully visible and everything else on top of it is underneath the topAddressBar</string>
+</resources>

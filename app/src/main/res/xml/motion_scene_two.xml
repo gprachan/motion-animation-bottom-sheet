@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+    <Transition
+        motion:constraintSetEnd="@layout/end"
+        motion:constraintSetStart="@layout/start">
+        <!--<OnSwipe
+            app:dragDirection="dragUp"
+            app:touchAnchorId="@+id/slider"
+            app:touchAnchorSide="bottom" />-->
+        <!--<OnSwipe
+            app:dragDirection="dragUp"
+            app:onTouchUp="autoCompleteToStart"
+            app:touchAnchorId="@+id/slider"
+            app:touchAnchorSide="top" />-->
+        <OnClick motion:targetId="@+id/slider" />
+
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:touchAnchorId="@+id/slider"
+            app:touchAnchorSide="bottom" />
+    </Transition>
+
+    <!-- <Transition
+         android:id="@+id/transition2"
+         app:constraintSetEnd="@layout/start"
+         app:constraintSetStart="@layout/end">
+
+         <OnSwipe
+             app:dragDirection="dragUp"
+             app:touchAnchorId="@+id/slider"
+             app:touchAnchorSide="top" />
+
+     </Transition>-->
+</MotionScene>
