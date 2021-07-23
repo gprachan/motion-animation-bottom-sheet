@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.util.toRange
 import androidx.lifecycle.lifecycleScope
@@ -14,6 +15,8 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
+
+    private val mainViewModel by viewModels<MainViewModel>()
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
@@ -30,27 +33,37 @@ class MainActivity : AppCompatActivity() {
 
 
         bottomView.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            var recentValue = 0f
             override fun onStateChanged(bottomSheet: View, newState: Int) {
-                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
-                    binding.bottomSheetView.parent.setTransitionDuration(700)
-                    binding.bottomSheetView.parent.transitionToEnd()
-                } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-                    binding.bottomSheetView.parent.setTransitionDuration(800)
-                    binding.bottomSheetView.parent.transitionToStart()
-                }
-                if (newState == BottomSheetBehavior.STATE_DRAGGING) {
-                    if (binding.bottomSheetView.parent.transitionTimeMs == 800L) {
-                        binding.bottomSheetView.parent.transitionToEnd()
-                    } else {
-                        binding.bottomSheetView.parent.transitionToStart()
-                    }
-                }
-
+                /* if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+                     binding.bottomSheetView.parent.setTransitionDuration(700)
+                     binding.bottomSheetView.parent.transitionToEnd()
+                 } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+                     binding.bottomSheetView.parent.setTransitionDuration(800)
+                     binding.bottomSheetView.parent.transitionToStart()
+                 }
+                 if (newState == BottomSheetBehavior.STATE_DRAGGING) {
+                     if (binding.bottomSheetView.parent.transitionTimeMs == 800L) {
+                         binding.bottomSheetView.parent.transitionToEnd()
+                     } else {
+                         binding.bottomSheetView.parent.transitionToStart()
+                     }
+                 }*/
             }
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                mainViewModel.setScrollValue(slideOffset)
             }
-
+        })
+        mainViewModel.scrollValue.observe(this, {
+            Log.e("MYTAG", "$it ${mainViewModel.recentValue}")
+            if (it > mainViewModel.recentValue) {
+                mainViewModel.recentValue = it
+                binding.bottomSheetView.parent.transitionToEnd()
+            } else {
+                mainViewModel.recentValue = it
+                binding.bottomSheetView.parent.transitionToStart()
+            }
         })
     }
 }

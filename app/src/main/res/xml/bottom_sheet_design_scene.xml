@@ -6,7 +6,7 @@
         android:id="@+id/expanded"
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="800" />
+        motion:duration="500" />
 
     <ConstraintSet android:id="@+id/start" />
 

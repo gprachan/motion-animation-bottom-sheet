@@ -48,5 +48,7 @@ dependencies {
 
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
 
+    // ViewModels
+    implementation "androidx.activity:activity-ktx:1.2.3"
 
 }
